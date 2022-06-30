@@ -48,7 +48,6 @@ const App = props => {
 
   // Variables
   const getLayout = Component.getLayout ?? (page => <UserLayout>{page}</UserLayout>)
-
   return (
     <CacheProvider value={emotionCache}>
       <Head>
@@ -64,6 +63,7 @@ const App = props => {
       <SettingsProvider>
         <SettingsConsumer>
           {({ settings }) => {
+              console.log(settings)
             return <ThemeComponent settings={settings}>{getLayout(<Component {...pageProps} />)}</ThemeComponent>
           }}
         </SettingsConsumer>
