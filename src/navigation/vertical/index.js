@@ -46,11 +46,11 @@ const navigation = () => {
     // {
     //   sectionTitle: 'User Interface'
     // },
-    // {
-    //   title: 'Typography',
-    //   icon: FormatLetterCase,
-    //   path: '/typography'
-    // },
+     {
+      title: 'Typography',
+      icon: FormatLetterCase,
+      path: '/typography'
+    },
     // {
     //   title: 'Icons',
     //   path: '/icons',
