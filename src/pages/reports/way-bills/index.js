@@ -46,19 +46,19 @@ const WayBills = () => {
                         <td className='infor-bill' colspan="2">
                             <div>
                                 <div style={{ width: '77%', float: 'left' }} >
-                                    <p class="s1 date">
+                                    <p className="s1 date">
                                         Date
                                         :
-                                        <span class="s2">DATE</span>
+                                        <span className="s2">DATE</span>
                                     </p>
-                                    <p class="s1 slot">
+                                    <p className="s1 slot">
                                         Slot
                                         :
-                                        <span class="s2">SLOT</span>
+                                        <span className="s2">SLOT</span>
                                     </p>
                                     <p className='p-null'><br /></p>
-                                    <p class="s1 ship-to">Ship To:</p>
-                                    <p class="s2 ship-to1">
+                                    <p className="s1 ship-to">Ship To:</p>
+                                    <p className="s2 ship-to1">
                                         SHIPTO_1
                                     </p>
                                 </div>
@@ -66,7 +66,7 @@ const WayBills = () => {
                                     <img width="80" height="80"
                                         src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=THEO1-0001" />
                                 </div>
-                                <p class="s2 ship-to23">
+                                <p className="s2 ship-to23">
                                     SHIPTO_2
                                     SHIPTO_3</p>
 
@@ -77,18 +77,18 @@ const WayBills = () => {
                     <tr style={{height:'76pt'}}>
                         <td className='td-remark'
                             colspan="2">
-                            <p class="s1 delivery-reamrk">Delivery
+                            <p className="s1 delivery-reamrk">Delivery
                                 Remarks:  DELIVERY_REMARKS</p>
                         </td>
                     </tr>
                     <tr style={{height:'60pt'}}>
                         <td className='td-sender'
                             colspan="2">
-                            <p class="s1 sender">Sender:
+                            <p className="s1 sender">Sender:
                                 SENDER
                             </p>
-                            <p class="s2 gray">Gray</p>
-                            <p class="s2 order-no">
+                            <p className="s2 gray">Gray</p>
+                            <p className="s2 order-no">
                                 Order No: ORDER_NO</p>
                         </td>
                     </tr>
@@ -107,12 +107,12 @@ const WayBills = () => {
                                 </tbody>
                             </table>
                             <p></p>
-                            <p class="s1 package-no">
+                            <p className="s1 package-no">
                                 Package No: PACKAGE_NO</p>
-                            <p class="s3 package-size">Package
-                                Size (CM): Line x Date x Pie <span class="s4">PACKAGE_SAZE</span></p>
-                            <p class="s3 package-title-date">Weight:
-                                TitleKg <span class="s5">WEIGHT_TITLE_DATE</span></p>
+                            <p className="s3 package-size">Package
+                                Size (CM): Line x Date x Pie <span className="s4">PACKAGE_SAZE</span></p>
+                            <p className="s3 package-title-date">Weight:
+                                TitleKg <span className="s5">WEIGHT_TITLE_DATE</span></p>
                         </td>
                     </tr>
                 </tbody>
