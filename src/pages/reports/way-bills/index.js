@@ -11,113 +11,117 @@ import { useRef, useState } from 'react'
 import { Head } from 'mdi-material-ui';
 // import "./style.css";
 const WayBills = () => {
-    const inputEl = useRef(null);
-
+    const [data, setData] = useState([1, 2, 3]);
     useState(() => {
-
-    }, [])
+        if (typeof window !== "undefined") {
+            const dataSrc = localStorage.getItem('WAYBILLS_PRINTING');
+            if (dataSrc) {
+                setData(JSON.parse(dataSrc));
+            }
+            localStorage.removeItem('WAYBILLS_PRINTING');
+        }
+    })
 
     return (
         <>
-            <Head sty>
-                <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                <meta name="author" content="Huper" />
+            {
+                data.map((item, i) =>
+                (
+                    <>
+                        <table className="pagebreak" style={{ borderCollapse: 'collapse', display: 'flex', justifyContent: 'center', marginBottom: '50px' }} cellspacing="0">
+                            <tbody>
+                                <tr style={{ height: '35pt' }}>
+                                    <td className='logo'>
 
-            </Head>
-            <table style={{ borderCollapse: 'collapse', display: 'flex', justifyContent: 'center' }} cellspacing="0">
-                <tbody>
-                    <tr style={{ height: '35pt' }}>
-                        <td className='logo'>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td><img width="116" height="36" src="https://i.ibb.co/rZgqkww/theo10vn.png" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p></p>
+                                    </td>
+                                    <td className='logo-right'>
+                                    </td>
+                                </tr>
+                                <tr style={{ height: '132pt' }}>
+                                    <td className='infor-bill' colspan="2">
+                                        <div>
+                                            <div style={{ width: '77%', float: 'left' }} >
+                                                <p className="s1 date">
+                                                    Date
+                                                    :
+                                                    <span className="s2">{item.SLOT}</span>
+                                                </p>
+                                                <p className="s1 slot">
+                                                    Slot
+                                                    :
+                                                    <span className="s2">{item.DATE}</span>
+                                                </p>
+                                                <p className='p-null'><br /></p>
+                                                <p className="s1 ship-to">Ship To:</p>
+                                                <p className="s2 ship-to1">
+                                                    {item.SHIPTO_1}
+                                                </p>
+                                            </div>
+                                            <div className='qa-code'>
+                                                <img width="80" height="80"
+                                                    src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=THEO1-0001" />
+                                            </div>
+                                            <p className="s2 ship-to23">
+                                                {item.SHIPTO_2}
+                                                {item.SHIPTO_3}</p>
 
-                            <table border="0" cellspacing="0" cellpadding="0">
-                                <tbody>
-                                    <tr>
-                                        <td><img width="116" height="36" src="https://i.ibb.co/rZgqkww/theo10vn.png" />
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <p></p>
-                        </td>
-                        <td className='logo-right'>
-                        </td>
-                    </tr>
-                    <tr style={{ height: '132pt' }}>
-                        <td className='infor-bill' colspan="2">
-                            <div>
-                                <div style={{ width: '77%', float: 'left' }} >
-                                    <p className="s1 date">
-                                        Date
-                                        :
-                                        <span className="s2">DATE</span>
-                                    </p>
-                                    <p className="s1 slot">
-                                        Slot
-                                        :
-                                        <span className="s2">SLOT</span>
-                                    </p>
-                                    <p className='p-null'><br /></p>
-                                    <p className="s1 ship-to">Ship To:</p>
-                                    <p className="s2 ship-to1">
-                                        SHIPTO_1
-                                    </p>
-                                </div>
-                                <div className='qa-code'>
-                                    <img width="80" height="80"
-                                        src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=THEO1-0001" />
-                                </div>
-                                <p className="s2 ship-to23">
-                                    SHIPTO_2
-                                    SHIPTO_3</p>
+                                        </div>
 
-                            </div>
-
-                        </td>
-                    </tr>
-                    <tr style={{height:'76pt'}}>
-                        <td className='td-remark'
-                            colspan="2">
-                            <p className="s1 delivery-reamrk">Delivery
-                                Remarks:  DELIVERY_REMARKS</p>
-                        </td>
-                    </tr>
-                    <tr style={{height:'60pt'}}>
-                        <td className='td-sender'
-                            colspan="2">
-                            <p className="s1 sender">Sender:
-                                SENDER
-                            </p>
-                            <p className="s2 gray">Gray</p>
-                            <p className="s2 order-no">
-                                Order No: ORDER_NO</p>
-                        </td>
-                    </tr>
-                    <tr  style={{height:'101pt'}}>
-                        <td className='td-package' colspan="2">
-                            <p className='p1'><br /></p>
-                            <p className='p2'><span>
-                            </span></p>
-                            <table className='table-package' border="0" cellspacing="0" cellpadding="0">
-                                <tbody>
-                                    <tr>
-                                        <td><img width="187" height="69"
-                                            src="https://barcode.tec-it.com/barcode.ashx?data=THEO1-0001&code=Code128&dmsize=Default" />
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <p></p>
-                            <p className="s1 package-no">
-                                Package No: PACKAGE_NO</p>
-                            <p className="s3 package-size">Package
-                                Size (CM): Line x Date x Pie <span className="s4">PACKAGE_SAZE</span></p>
-                            <p className="s3 package-title-date">Weight:
-                                TitleKg <span className="s5">WEIGHT_TITLE_DATE</span></p>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <style global jsx>{`
+                                    </td>
+                                </tr>
+                                <tr style={{ height: '76pt' }}>
+                                    <td className='td-remark'
+                                        colspan="2">
+                                        <p className="s1 delivery-reamrk">Delivery
+                                            Remarks:  {item.DELIVERY_REMARKS}</p>
+                                    </td>
+                                </tr>
+                                <tr style={{ height: '60pt' }}>
+                                    <td className='td-sender'
+                                        colspan="2">
+                                        <p className="s1 sender">Sender:
+                                            {item.SENDER}
+                                        </p>
+                                        <p className="s2 gray">Gray</p>
+                                        <p className="s2 order-no">
+                                            Order No: {item.ORDER_NO}</p>
+                                    </td>
+                                </tr>
+                                <tr style={{ height: '101pt' }}>
+                                    <td className='td-package' colspan="2">
+                                        <p className='p1'><br /></p>
+                                        <p className='p2'><span>
+                                        </span></p>
+                                        <table className='table-package' border="0" cellspacing="0" cellpadding="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td><img width="187" height="69"
+                                                        src="https://barcode.tec-it.com/barcode.ashx?data=THEO1-0001&code=Code128&dmsize=Default" />
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <p></p>
+                                        <p className="s1 package-no">
+                                            Package No: {item.PACKAGE_NO}</p>
+                                        <p className="s3 package-size">Package
+                                            Size (CM): Line x Date x Pie <span className="s4">{item.PACKAGE_SAZE}</span></p>
+                                        <p className="s3 package-title-date">Weight:
+                                            TitleKg <span className="s5">{item.WEIGHT_TITLE_DATE}</span></p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <style global jsx>{`
 .navbar-content-container, .MuiPaper-root, .footer-content-container, .MuiSvgIcon-root{
     display: none !important;
 }
@@ -138,7 +142,10 @@ body{
         max-width: 288pt;
         max-height: 432pt; */
     }
-
+    .pagebreak {
+        clear: both;
+        page-break-after: always;
+    }
 }
 
 * {
@@ -292,6 +299,11 @@ tbody {
     padding: 3pt;text-align: right;border-top-style:solid;border-top-width:2pt;border-bottom-style:solid;border-bottom-width:1pt;border-right-style:solid;border-right-width:2pt
 }
     `}</style>
+                    </>
+                )
+                )
+            }
+
         </>
 
 

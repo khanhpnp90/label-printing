@@ -63,7 +63,6 @@ const App = props => {
       <SettingsProvider>
         <SettingsConsumer>
           {({ settings }) => {
-              console.log(settings)
             return <ThemeComponent settings={settings}>{getLayout(<Component {...pageProps} />)}</ThemeComponent>
           }}
         </SettingsConsumer>

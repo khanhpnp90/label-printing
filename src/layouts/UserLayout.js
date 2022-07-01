@@ -17,10 +17,8 @@ import VerticalAppBarContent from './components/vertical/AppBarContent'
 import { useSettings } from 'src/@core/hooks/useSettings'
 
 const UserLayout = ({ children }) => {
-  console.log(children)
   // ** Hooks
   const { settings, saveSettings } = useSettings()
-  console.log(settings)
   /**
    *  The below variable will hide the current layout menu at given screen size.
    *  The menu will be accessible from the Hamburger icon only (Vertical Overlay Menu).
