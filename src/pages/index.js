@@ -22,6 +22,7 @@ import Button from '@mui/material/Button'
 import Close from 'mdi-material-ui/Close'
 import WayBillsDataTable from './way-bills/components/way-bill-datatable'
 import moment from 'moment';
+import Delete from 'mdi-material-ui/Delete'
 
 
 const ImgStyled = styled('img')(({ theme }) => ({
@@ -54,6 +55,7 @@ const Dashboard = () => {
   const [imgSrc, setImgSrc] = useState('/images/avatars/1.png')
   const [data, setData] = useState([])
   const [isSuccessUpload, setSuccessUpload] = useState(true)
+  const [fileName, setFileName] = useState(null);
 
   const onChange = (e) => {
     readXlsxFile(e.target.files[0]).then((rows) => {
@@ -63,11 +65,14 @@ const Dashboard = () => {
       try {
         if (rows && rows.length > 0) {
           rows.splice(0, 1);
+          setFileName(e.target.files[0].name)
           setData(createData(rows));
         }
       } catch (error) {
         console.log('Error when Import', error);
         setOpenAlert(true)
+      } finally {
+        e.target.value = ''
       }
     })
   }
@@ -97,10 +102,15 @@ const Dashboard = () => {
     })
   }
 
+  const deleteFile = () => {
+    setFileName(null);
+    setData([]);
+  }
+
   return (
     <>
       <Card>
-        <CardHeader titleTypographyProps={{ variant: 'h6' }} />
+        <CardHeader title='Print the labels' titleTypographyProps={{ variant: 'h6' }} />
         <CardContent>
           <CardContent>
             <form>
@@ -110,7 +120,7 @@ const Dashboard = () => {
                     {/* <ImgStyled src={imgSrc} alt='Profile Pic' /> */}
                     <Box>
                       <ButtonStyled component='label' variant='contained' htmlFor='account-settings-upload-image'>
-                        Upload New Photo
+                        Upload data file
                         <input
                           hidden
                           type='file'
@@ -123,7 +133,18 @@ const Dashboard = () => {
                       <ResetButtonStyled color='error' variant='outlined' onClick={onPrint}>
                         Print labels
                       </ResetButtonStyled>
-                      <Typography variant='body2' sx={{ marginTop: 5 }}>
+                      {fileName && (
+
+
+                        <div>
+                          <Typography variant='body2' sx={{ marginTop: '20px', float: 'left' }}>
+                            {fileName}
+                          </Typography>
+                          <Delete onClick={deleteFile} style={{ marginTop: '15px', marginLeft: 50, cursor: 'pointer' }} />
+                        </div>
+
+                      )}
+                      <Typography variant='body2' sx={{ marginTop: 3, color: '#ff8080' }}>
                         Allowed xls, .xlsx. Max size of 800K.
                       </Typography>
                     </Box>
@@ -143,7 +164,7 @@ const Dashboard = () => {
                         </IconButton>
                       }
                     >
-                      <AlertTitle>Something inyour file is not correact.</AlertTitle>
+                      <AlertTitle>Something in your file is not correact.</AlertTitle>
                       <Link href='/' onClick={e => e.preventDefault()}>
                         Try to upload
                       </Link>
@@ -152,7 +173,7 @@ const Dashboard = () => {
                 ) : null}
 
                 {
-                  openAlert==false ? (
+                  data.length > 0 ? (
                     <Grid item xs={12}>
                       <Card>
                         <CardHeader title='Sticky Header' titleTypographyProps={{ variant: 'h6' }} />
