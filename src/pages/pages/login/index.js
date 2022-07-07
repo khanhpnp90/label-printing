@@ -157,12 +157,12 @@ const LoginPage = () => {
               {themeConfig.templateName}
             </Typography>
           </Box>
-          <Box sx={{ mb: 6 }}>
+          {/* <Box sx={{ mb: 6 }}>
             <Typography variant='h5' sx={{ fontWeight: 600, marginBottom: 1.5 }}>
               Welcome to {themeConfig.templateName}! 👋🏻
             </Typography>
             <Typography variant='body2'>Please sign-in to your account and start the adventure</Typography>
-          </Box>
+          </Box> */}
           <form noValidate autoComplete='off' onSubmit={e => e.preventDefault()}>
             <TextField autoFocus fullWidth id='email' label='Email' sx={{ marginBottom: 4 }} />
             <FormControl fullWidth>
@@ -204,7 +204,7 @@ const LoginPage = () => {
             >
               Login
             </Button>
-            <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
+            {/* <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
               <Typography variant='body2' sx={{ marginRight: 2 }}>
                 New on our platform?
               </Typography>
@@ -213,8 +213,8 @@ const LoginPage = () => {
                   <LinkStyled>Create an account</LinkStyled>
                 </Link>
               </Typography>
-            </Box>
-            <Divider sx={{ my: 5 }}>or</Divider>
+            </Box> */}
+            {/* <Divider sx={{ my: 5 }}>or</Divider>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <Link href='/' passHref>
                 <IconButton component='a' onClick={e => e.preventDefault()}>
@@ -238,7 +238,7 @@ const LoginPage = () => {
                   <Google sx={{ color: '#db4437' }} />
                 </IconButton>
               </Link>
-            </Box>
+            </Box> */}
           </form>
         </CardContent>
       </Card>
