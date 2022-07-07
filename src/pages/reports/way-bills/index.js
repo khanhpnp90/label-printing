@@ -35,7 +35,7 @@ const WayBills = () => {
                                         <table border="0"  cellSpacing={0} cellPadding={0} >
                                             <tbody>
                                                 <tr>
-                                                    <td><img width="116" height="36" src="https://i.ibb.co/rZgqkww/theo10vn.png" />
+                                                    <td><img width="116" height="36" alt="" src="https://i.ibb.co/rZgqkww/theo10vn.png" />
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -66,7 +66,7 @@ const WayBills = () => {
                                                 </p>
                                             </div>
                                             <div className='qa-code'>
-                                                <img width="80" height="80"
+                                                <img width="80" height="80" alt=""
                                                     src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=THEO1-0001" />
                                             </div>
                                             <p className="s2 ship-to23">
@@ -103,7 +103,7 @@ const WayBills = () => {
                                         <table className='table-package' border="0" cellPadding={0} cellSpacing={0} >
                                             <tbody>
                                                 <tr>
-                                                    <td><img width="187" height="69"
+                                                    <td><img width="187" height="69" alt=''
                                                         src="https://barcode.tec-it.com/barcode.ashx?data=THEO1-0001&code=Code128&dmsize=Default" />
                                                     </td>
                                                 </tr>

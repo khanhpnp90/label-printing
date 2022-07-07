@@ -77,11 +77,11 @@ const WayBillsDataTable = (props) => {
   // ** States
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
-  const [data, setData] = useState(props.data);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     setData(props.data);
-  });
+  }, []);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
