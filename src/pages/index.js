@@ -118,7 +118,7 @@ const Dashboard = () => {
                 <Grid item xs={12} sx={{ marginTop: 4.8, marginBottom: 3 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     {/* <ImgStyled src={imgSrc} alt='Profile Pic' /> */}
-                    <Box>Labels Printing
+                    <Box>
                       <ButtonStyled component='label' variant='contained' htmlFor='account-settings-upload-image'>
                         Upload data file
                         <input

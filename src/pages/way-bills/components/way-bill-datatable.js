@@ -94,12 +94,12 @@ const WayBillsDataTable = (props) => {
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
-      <TableContainer sx={{ maxHeight: 440 }}>
+      <TableContainer sx={{ maxHeight: 600 }}>
         <Table stickyHeader aria-label='sticky table'>
           <TableHead>
             <TableRow>
               {columns.map(column => (
-                <TableCell key={column.id} align={column.align} sx={{ minWidth: column.minWidth }}>
+                <TableCell key={column.id} align={column.align} sx={{ minWidth: column.minWidth  }}>
                   {column.label}
                 </TableCell>
               ))}
