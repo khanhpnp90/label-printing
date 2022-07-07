@@ -78,7 +78,7 @@ const TotalEarning = () => {
               sx={{
                 display: 'flex',
                 alignItems: 'center',
-                ...(index !== data.length - 1 ? { mb: 8.5 } : {})
+                ...(index !== data?.length - 1 ? { mb: 8.5 } : {})
               }}
             >
               <Avatar

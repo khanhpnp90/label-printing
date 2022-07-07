@@ -1,15 +1,15 @@
 // ** React Imports
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
 // ** MUI Imports
-import Paper from '@mui/material/Paper'
-import Table from '@mui/material/Table'
-import TableRow from '@mui/material/TableRow'
-import TableHead from '@mui/material/TableHead'
-import TableBody from '@mui/material/TableBody'
-import TableCell from '@mui/material/TableCell'
-import TableContainer from '@mui/material/TableContainer'
-import TablePagination from '@mui/material/TablePagination'
+import Paper from '@mui/material/Paper';
+import Table from '@mui/material/Table';
+import TableRow from '@mui/material/TableRow';
+import TableHead from '@mui/material/TableHead';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TablePagination from '@mui/material/TablePagination';
 import moment from 'moment';
 
 const columns = [
@@ -75,26 +75,22 @@ const columns = [
 
 const WayBillsDataTable = (props) => {
   // ** States
-  const [page, setPage] = useState(0)
-  const [rowsPerPage, setRowsPerPage] = useState(10)
-  const [data, setData] = useState(props.data)
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [data, setData] = useState(props.data);
 
   useEffect(() => {
-    //const dataSource = createData();
-    setData(props.data)
-    //console.log('dataSrc', dataSource)
-  })
+    setData(props.data);
+  });
 
   const handleChangePage = (event, newPage) => {
-    setPage(newPage)
+    setPage(newPage);
   }
 
   const handleChangeRowsPerPage = event => {
-    setRowsPerPage(+event.target.value)
-    setPage(0)
+    setRowsPerPage(+event.target.value);
+    setPage(0);
   }
-
-
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -110,13 +106,11 @@ const WayBillsDataTable = (props) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => {
+            {data?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => {
               return (
                 <TableRow hover role='checkbox' tabIndex={-1} key={index}>
                   {columns.map(column => {
-                    const value = row[column.id]
-                    // console.log('value',value)
-                    // const value = data[index]
+                    const value = row[column.id];
 
                     return (
                       <TableCell key={column.id} align={column.align}>
@@ -134,7 +128,7 @@ const WayBillsDataTable = (props) => {
       <TablePagination
         rowsPerPageOptions={[10, 25, 100]}
         component='div'
-        count={data.length}
+        count={data?.length ?? 0}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}
@@ -144,4 +138,4 @@ const WayBillsDataTable = (props) => {
   )
 }
 
-export default WayBillsDataTable
+export default WayBillsDataTable;

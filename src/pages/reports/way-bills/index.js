@@ -8,8 +8,7 @@
 
 // ** Demo Components Imports
 import { useRef, useState } from 'react'
-import { Head } from 'mdi-material-ui';
-// import "./style.css";
+
 const WayBills = () => {
     const [data, setData] = useState([1, 2, 3]);
     useState(() => {
@@ -20,7 +19,7 @@ const WayBills = () => {
             }
             localStorage.removeItem('WAYBILLS_PRINTING');
         }
-    })
+    });
 
     return (
         <>
@@ -28,12 +27,12 @@ const WayBills = () => {
                 data.map((item, i) =>
                 (
                     <>
-                        <table className="pagebreak" style={{ borderCollapse: 'collapse', display: 'flex', justifyContent: 'center', marginBottom: '50px' }} cellspacing="0">
+                        <table className="pagebreak" cellSpacing={0} style={{ borderCollapse: 'collapse', display: 'flex', justifyContent: 'center', marginBottom: '50px' }}>
                             <tbody>
                                 <tr style={{ height: '35pt' }}>
                                     <td className='logo'>
 
-                                        <table border="0" cellspacing="0" cellpadding="0">
+                                        <table border="0"  cellSpacing={0} cellPadding={0} >
                                             <tbody>
                                                 <tr>
                                                     <td><img width="116" height="36" src="https://i.ibb.co/rZgqkww/theo10vn.png" />
@@ -47,7 +46,7 @@ const WayBills = () => {
                                     </td>
                                 </tr>
                                 <tr style={{ height: '132pt' }}>
-                                    <td className='infor-bill' colspan="2">
+                                    <td className='infor-bill' colSpan={2}>
                                         <div>
                                             <div style={{ width: '77%', float: 'left' }} >
                                                 <p className="s1 date">
@@ -80,14 +79,14 @@ const WayBills = () => {
                                 </tr>
                                 <tr style={{ height: '76pt' }}>
                                     <td className='td-remark'
-                                        colspan="2">
+                                        colSpan={2}>
                                         <p className="s1 delivery-reamrk">Delivery
                                             Remarks:  {item.DELIVERY_REMARKS}</p>
                                     </td>
                                 </tr>
                                 <tr style={{ height: '60pt' }}>
                                     <td className='td-sender'
-                                        colspan="2">
+                                         colSpan={2}>
                                         <p className="s1 sender">Sender:
                                             {item.SENDER}
                                         </p>
@@ -97,11 +96,11 @@ const WayBills = () => {
                                     </td>
                                 </tr>
                                 <tr style={{ height: '101pt' }}>
-                                    <td className='td-package' colspan="2">
+                                    <td className='td-package' colSpan={2}>
                                         <p className='p1'><br /></p>
                                         <p className='p2'><span>
                                         </span></p>
-                                        <table className='table-package' border="0" cellspacing="0" cellpadding="0">
+                                        <table className='table-package' border="0" cellPadding={0} cellSpacing={0} >
                                             <tbody>
                                                 <tr>
                                                     <td><img width="187" height="69"

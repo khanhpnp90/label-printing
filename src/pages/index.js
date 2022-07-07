@@ -51,10 +51,10 @@ const ResetButtonStyled = styled(Button)(({ theme }) => ({
 
 const Dashboard = () => {
   const inputEl = useRef(null);
-  const [openAlert, setOpenAlert] = useState(false)
-  const [imgSrc, setImgSrc] = useState('/images/avatars/1.png')
-  const [data, setData] = useState([])
-  const [isSuccessUpload, setSuccessUpload] = useState(true)
+  const [openAlert, setOpenAlert] = useState(false);
+  const [imgSrc, setImgSrc] = useState('/images/avatars/1.png');
+  const [data, setData] = useState([]);
+  const [isSuccessUpload, setSuccessUpload] = useState(true);
   const [fileName, setFileName] = useState(null);
 
   const onChange = (e) => {
@@ -65,14 +65,14 @@ const Dashboard = () => {
       try {
         if (rows && rows.length > 0) {
           rows.splice(0, 1);
-          setFileName(e.target.files[0].name)
+          setFileName(e.target.files[0].name);
           setData(createData(rows));
         }
       } catch (error) {
         console.log('Error when Import', error);
-        setOpenAlert(true)
+        setOpenAlert(true);
       } finally {
-        e.target.value = ''
+        e.target.value = '';
       }
     })
   }
@@ -125,7 +125,6 @@ const Dashboard = () => {
                           hidden
                           type='file'
                           onChange={onChange}
-                          // accept='image/png, image/jpeg'
                           accept='xls, .xlsx'
                           id='account-settings-upload-image'
                         />
