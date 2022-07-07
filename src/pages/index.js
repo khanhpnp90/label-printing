@@ -110,7 +110,7 @@ const Dashboard = () => {
   return (
     <>
       <Card>
-        <CardHeader title='Print the labels' titleTypographyProps={{ variant: 'h6' }} />
+        <CardHeader title='Labels Printing' titleTypographyProps={{ variant: 'h6' }} />
         <CardContent>
           <CardContent>
             <form>
@@ -118,7 +118,7 @@ const Dashboard = () => {
                 <Grid item xs={12} sx={{ marginTop: 4.8, marginBottom: 3 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     {/* <ImgStyled src={imgSrc} alt='Profile Pic' /> */}
-                    <Box>
+                    <Box>Labels Printing
                       <ButtonStyled component='label' variant='contained' htmlFor='account-settings-upload-image'>
                         Upload data file
                         <input

@@ -47,7 +47,7 @@ const App = props => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   // Variables
-  const getLayout = Component.getLayout ?? (page => <UserLayout> return {page} ;</UserLayout>);
+  const getLayout = Component.getLayout ?? (page => <UserLayout> {page} </UserLayout>);
 
 
   return (
